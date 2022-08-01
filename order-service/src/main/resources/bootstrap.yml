@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: order-service
+  profiles:
+    active: dev
+
+  cloud:
+      nacos:
+        discovery:
+          server-addr: localhost:8848
+          ephemeral: false
+        config:
+          file-extension: yaml
+
+  #        cluster-name: SZ #设置集群
+  #        namespace: namespaceID 设置环境隔离 实质是对服务的隔离，互相隔离无法访问
+  #        是否为临时实例（临时实例采用心跳机制，发现服务宕机就剔除出去。非临时实例采用主动询问方式，发现宕机标记健康状态false，并等待恢复）
+  #配置Nacos负载均衡规则,优先选择同集群下的服务
+
+
