@@ -17,5 +17,5 @@ import org.springframework.stereotype.Component;
 @Data
 @Component
 public class OrderConfigWithNac {
-    private String dateFormat;
+    public static String DATE_FORMAT;
 }

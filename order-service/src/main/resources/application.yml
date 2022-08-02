@@ -8,6 +8,7 @@ spring:
     password: root123456
 user-service:
   ribbon:
+    #配置Nacos负载均衡规则,优先选择同集群下的服务
     NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule
 
 logging:
