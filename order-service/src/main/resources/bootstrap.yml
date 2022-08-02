@@ -12,7 +12,7 @@ spring:
         config:
           file-extension: yaml
   #        cluster-name: SZ #设置集群
-  #        namespace: namespaceID 设置环境隔离 实质是对服务的隔离，互相隔离无法访问
+  #        namespace: namespaceID  设置环境隔离 实质是对服务的隔离，互相隔离无法访问
 
 
 
