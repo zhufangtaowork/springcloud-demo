@@ -1,4 +1,4 @@
-package com.xz.response;
+package com.xz.entity.commonview;
 
 import lombok.Data;
 

@@ -1,7 +1,7 @@
 package com.xz.controller;
 
-import com.xz.dto.OrderInfo;
-import com.xz.response.ResultView;
+import com.xz.entity.commonview.ResultView;
+import com.xz.entity.order.dto.OrderInfo;
 import com.xz.service.OrderService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

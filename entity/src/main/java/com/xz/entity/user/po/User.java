@@ -1,8 +1,7 @@
-package com.xz.po;
+package com.xz.entity.user.po;
 
 import lombok.Data;
 import org.apache.ibatis.type.Alias;
-import org.springframework.stereotype.Component;
 
 /**
  * @ClassName： User
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Component;
  * @Date： 2022/7/29 下午3:51
  * @author： ZhuFangTao
  */
-@Alias("user")
 @Data
 public class User {
     private Integer id;

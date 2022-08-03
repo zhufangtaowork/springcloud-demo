@@ -17,6 +17,8 @@
         <module>user-service</module>
         <module>zuul</module>
         <module>order-service</module>
+        <module>feign-api</module>
+        <module>entity</module>
     </modules>
     <packaging>pom</packaging>
     <properties>

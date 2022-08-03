@@ -1,10 +1,8 @@
-package com.xz.dto;
+package com.xz.entity.order.dto;
 
-import com.xz.po.Order;
-import com.xz.po.User;
+import com.xz.entity.order.po.Order;
+import com.xz.entity.user.po.User;
 import lombok.Data;
-
-import java.util.Date;
 
 /**
  * @ClassName： OrderInfo

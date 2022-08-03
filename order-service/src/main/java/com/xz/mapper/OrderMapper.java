@@ -1,6 +1,7 @@
 package com.xz.mapper;
 
-import com.xz.po.Order;
+
+import com.xz.entity.order.po.Order;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

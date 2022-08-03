@@ -1,7 +1,8 @@
-package com.xz.clients;
+package com.xz.clients.userclients;
 
-import com.xz.dto.UserInfo;
-import com.xz.response.ResultView;
+
+import com.xz.entity.commonview.ResultView;
+import com.xz.entity.user.dto.UserInfo;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

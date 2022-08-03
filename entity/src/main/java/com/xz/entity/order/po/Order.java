@@ -1,4 +1,4 @@
-package com.xz.po;
+package com.xz.entity.order.po;
 
 import lombok.Data;
 import org.apache.ibatis.type.Alias;
@@ -11,7 +11,6 @@ import java.math.BigDecimal;
  * @Date： 2022/7/29 下午4:04
  * @author： ZhuFangTao
  */
-@Alias(value = "order")
 @Data
 public class Order {
 

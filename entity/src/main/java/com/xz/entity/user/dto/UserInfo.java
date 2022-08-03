@@ -1,6 +1,6 @@
-package com.xz.dto;
+package com.xz.entity.user.dto;
 
-import com.xz.po.User;
+import com.xz.entity.user.po.User;
 import lombok.Data;
 
 /**

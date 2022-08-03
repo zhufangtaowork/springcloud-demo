@@ -1,14 +1,12 @@
 package com.xz.controller;
 
-import com.xz.dto.UserInfo;
-import com.xz.response.ResultView;
+import com.xz.entity.commonview.ResultView;
+import com.xz.entity.user.dto.UserInfo;
 import com.xz.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.ArrayList;
 
 /**
  * @ClassName： UserController

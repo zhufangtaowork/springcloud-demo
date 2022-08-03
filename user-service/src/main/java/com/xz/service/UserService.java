@@ -1,10 +1,11 @@
 package com.xz.service;
 
-import com.xz.dto.UserInfo;
+
+import com.xz.entity.commonview.ResultCode;
+import com.xz.entity.commonview.ResultView;
+import com.xz.entity.user.dto.UserInfo;
+import com.xz.entity.user.po.User;
 import com.xz.mapper.UserMapper;
-import com.xz.po.User;
-import com.xz.response.ResultCode;
-import com.xz.response.ResultView;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;

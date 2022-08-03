@@ -1,11 +1,10 @@
 package com.xz.mapper;
 
-import com.xz.dto.UserInfo;
-import com.xz.po.User;
+
+import com.xz.entity.user.po.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.Mapping;
 
 /**
  * @ClassName： UserMapper

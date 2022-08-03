@@ -1,6 +1,4 @@
-package com.xz.response;
-
-import org.springframework.stereotype.Component;
+package com.xz.entity.commonview;
 
 import java.util.HashMap;
 

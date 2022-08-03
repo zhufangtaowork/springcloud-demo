@@ -1,17 +1,16 @@
 package com.xz.service;
 
-import com.xz.clients.UserClients;
+import com.xz.clients.userclients.UserClients;
 import com.xz.configpojo.OrderConfigWithNac;
-import com.xz.dto.OrderInfo;
-import com.xz.dto.UserInfo;
+import com.xz.entity.commonview.ResultCode;
+import com.xz.entity.commonview.ResultView;
+import com.xz.entity.order.dto.OrderInfo;
+import com.xz.entity.order.po.Order;
+import com.xz.entity.user.dto.UserInfo;
 import com.xz.mapper.OrderMapper;
-import com.xz.po.Order;
-import com.xz.response.ResultCode;
-import com.xz.response.ResultView;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
