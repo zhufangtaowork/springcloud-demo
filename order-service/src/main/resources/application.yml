@@ -1,11 +1,12 @@
 server:
-  port: 1007
+  port: 1014
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/order?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
     password: root123456
+
 user-service:
   ribbon:
     #配置Nacos负载均衡规则,优先选择同集群下的服务
@@ -24,18 +25,22 @@ mybatis:
   typeAliasesPackage: com.xz.po
   mapperLocations: classpath:mapper/*.xml
 
-#feign的自定义配置 两种1 在yml文件中如下，2使用Java代码编写配置类 放到启动类或者feign接口的注解中
-#feign:
-#  client:
-#    # 配置
-#    config:
-#      # feign.Request.Options.Options()
-#      default:
-#        # 控制日志Level，默认：null即NONE
-#        # NONE 没有日志
-#        # BASIC 只记录请求方法和URL以及响应状态码和执行时间
-#        # HEADERS 记录基本信息以及请求和响应头
-#        # FULL 记录请求和响应的头、正文和元数据
-#        logger-level: FULL
 
+#feign的自定义配置 两种1 在yml文件中如下，2使用Java代码编写配置类 放到启动类或者feign接口的注解中
+feign:
+  client:
+    # 配置
+    config:
+      # feign.Request.Options.Options()
+      user-service:
+        # 控制日志Level，默认：null即NONE
+        # NONE 没有日志
+        # BASIC 只记录请求方法和URL以及响应状态码和执行时间
+        # HEADERS 记录基本信息以及请求和响应头
+        # FULL 记录请求和响应的头、正文和元数据
+        logger-level: BASIC
+  httpclient:
+    enabled: true
+    max-connections-per-route: 50
+    max-connections: 200
 

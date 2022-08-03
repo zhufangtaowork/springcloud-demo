@@ -1,10 +1,10 @@
 package com.xz;
 
-import com.xz.feignloggerconfig.FeignLoggerConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @ClassName： OrderApplication
@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @Date： 2022/7/29 下午4:02
  * @author： ZhuFangTao
  */
-@EnableFeignClients(defaultConfiguration = FeignLoggerConfig.class)
+@EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
 public class OrderApplication {

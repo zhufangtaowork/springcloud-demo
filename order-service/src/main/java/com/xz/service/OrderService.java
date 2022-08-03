@@ -26,9 +26,12 @@ public class OrderService {
 
     private OrderMapper orderMapper;
     private UserClients userClients;
+    private OrderConfigWithNac orderConfigWithNac;
+
     public OrderService(OrderMapper orderMapper, UserClients userClients, OrderConfigWithNac orderConfigWithNac) {
         this.orderMapper = orderMapper;
         this.userClients = userClients;
+        this.orderConfigWithNac = orderConfigWithNac;
     }
     /**
      * 功能描述: <br>
@@ -48,7 +51,7 @@ public class OrderService {
         BeanUtils.copyProperties(order,orderInfo);
         ResultView<UserInfo> userInfoResultView = userClients.byUserIdGetUserInfo(orderInfo.getUserId());
         orderInfo.setUser(userInfoResultView.getData());
-        String format = LocalDateTime.now().format(DateTimeFormatter.ofPattern(OrderConfigWithNac.DATE_FORMAT));
+        String format = LocalDateTime.now().format(DateTimeFormatter.ofPattern(orderConfigWithNac.getDateFormat()));
         orderInfo.setGetTime(format);
         return orderInfoResultView.setMsgCode(ResultCode.SUCCESS).setData(orderInfo);
     }
