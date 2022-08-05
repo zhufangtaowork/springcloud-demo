@@ -3,17 +3,16 @@ package com.xz;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-//import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
- * @ClassName： UserApplication
- * @Description： TODO
- * @Date： 2022/7/24 下午12:59
+ * @ClassName： GatewayApplication
+ * @Description： gateway网关启动类
+ * @Date： 2022/8/5 下午4:02
  * @author： ZhuFangTao
  */
 @SpringBootApplication
-public class UserApplication {
+public class GatewayApplication {
     public static void main(String[] args) {
-        SpringApplication.run(UserApplication.class,args);
+        SpringApplication.run(GatewayApplication.class, args);
     }
 }

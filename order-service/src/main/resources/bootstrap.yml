@@ -8,7 +8,8 @@ spring:
       nacos:
         discovery:
           server-addr: localhost:8848
-#          ephemeral: false 配置nacos实例是否为临时实例 默认true 临时实例采用心跳机制，发现服务宕机就剔除出去。非临时实例采用主动询问方式，发现宕机标记健康状态false，并等待恢复）
+          cluster-name: SX
+        #          ephemeral: false 配置nacos实例是否为临时实例 默认true 临时实例采用心跳机制，发现服务宕机就剔除出去。非临时实例采用主动询问方式，发现宕机标记健康状态false，并等待恢复）
         config:
           file-extension: yaml
   #        cluster-name: SZ #设置集群

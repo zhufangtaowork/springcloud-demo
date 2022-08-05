@@ -12,7 +12,7 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
-#        cluster-name: HB #配置集群
+        cluster-name: SX #配置集群
 logging:
   level:
     com.xz.mapper: DEBUG

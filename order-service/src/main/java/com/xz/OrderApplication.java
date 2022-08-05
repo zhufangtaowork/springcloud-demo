@@ -13,7 +13,6 @@ import org.springframework.context.annotation.ComponentScan;
  * @author： ZhuFangTao
  */
 @EnableFeignClients
-@EnableDiscoveryClient
 @SpringBootApplication
 public class OrderApplication {
     public static void main(String[] args) {
