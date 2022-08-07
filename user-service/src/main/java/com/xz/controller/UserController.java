@@ -2,11 +2,12 @@ package com.xz.controller;
 
 import com.xz.entity.commonview.ResultView;
 import com.xz.entity.user.dto.UserInfo;
+import com.xz.entity.user.po.User;
 import com.xz.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 
 /**
  * @ClassName： UserController
@@ -23,8 +24,22 @@ public class UserController {
         this.userService = userService;
     }
 
+
     @GetMapping("/{id}")
-    public ResultView<UserInfo> getUserInfo(@PathVariable Integer id){
+    public ResultView<UserInfo> getUserInfo(@PathVariable(value = "id",required = false) Integer id){
         return userService.byUserIdGetUserInfo(id);
     }
+
+    @PutMapping("/add")
+    public ResultView addUserInfo(@RequestBody User user){
+        return userService.addUser(user);
+    }
+
+    @PostMapping(value = "/login")
+    public ResultView login(@RequestParam String username, @RequestParam String password) {
+        return userService.loginByUsernameAndPassword(username,password);
+
+    }
+
+
 }

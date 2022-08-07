@@ -12,6 +12,7 @@ import org.apache.ibatis.type.Alias;
 @Data
 public class User {
     private Integer id;
+    private String password;
     private String username;
     private String address;
 }

@@ -25,6 +25,7 @@ public class ResultCode {
     public static final String NO_DATA = "1000";
     public static final String VALID_PASSWORD = "1001";
     public static final String VALID_LOGIN = "1002";
+    public static final String USERNAME_REPEAT = "1003";
 
 
     static {
@@ -35,5 +36,6 @@ public class ResultCode {
         msg.put(NO_DATA,"用户不存在!");
         msg.put(VALID_PASSWORD,"密码错误!");
         msg.put(VALID_LOGIN,"登录无效，请重新登录！");
+        msg.put(USERNAME_REPEAT,"用户名已存在！");
     }
 }

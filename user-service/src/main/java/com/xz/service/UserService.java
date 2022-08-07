@@ -7,8 +7,10 @@ import com.xz.entity.user.dto.UserInfo;
 import com.xz.entity.user.po.User;
 import com.xz.mapper.UserMapper;
 import org.springframework.beans.BeanUtils;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @ClassName： UserService
@@ -43,5 +45,52 @@ public class UserService {
         BeanUtils.copyProperties(user,userInfo);
         resultView = resultView.setMsgCode(ResultCode.SUCCESS).setData(userInfo);
         return resultView;
+    }
+
+    /**
+     * 功能描述: <br>
+     * 〈添加用户〉
+     * @Param: [user]
+     * @Return: com.xz.entity.commonview.ResultView
+     * @Author: zft
+     * @Date: 2022/8/6 下午6:25
+     */
+    public ResultView addUser(User user) {
+        ResultView resultView = new ResultView<>();
+        if (StringUtils.isEmpty(user)) {
+            return resultView.setMsgCode(ResultCode.REQUIRED_PARAMETER_MISSING);
+        }
+        if (!StringUtils.isEmpty(user.getPassword())){
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            String encode = passwordEncoder.encode(user.getPassword());
+            user.setPassword(encode);
+        }
+        User mapperUserByUsername = userMapper.getUserByUsername(user.getUsername());
+        if (!StringUtils.isEmpty(mapperUserByUsername)){
+            return resultView.setMsgCode(ResultCode.USERNAME_REPEAT);
+        }
+        Integer res = userMapper.addUser(user);
+        if (res!=0){
+            return resultView.setMsgCode(ResultCode.SUCCESS);
+        }
+        return resultView.setMsgCode(ResultCode.FAIL);
+    }
+
+    public ResultView loginByUsernameAndPassword(String username, String password) {
+        ResultView<Object> resultView = new ResultView<>();
+        if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
+            return resultView.setMsgCode(ResultCode.REQUIRED_PARAMETER_MISSING);
+        }
+        User user = userMapper.getUserByUsername(username);
+        if (StringUtils.isEmpty(user)){
+            return resultView.setMsgCode(ResultCode.NO_DATA);
+        }
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        if (!passwordEncoder.matches(password, user.getPassword())){
+            return resultView.setMsgCode(ResultCode.VALID_PASSWORD);
+        }
+
+        return resultView.setMsgCode(ResultCode.SUCCESS);
+
     }
 }

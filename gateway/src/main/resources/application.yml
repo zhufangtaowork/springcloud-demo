@@ -1,5 +1,5 @@
 server:
-  port: 1019
+  port: 10018
 spring:
   application:
     name: gateway
@@ -12,7 +12,7 @@ spring:
         - id: order-service #路由ID 自己定义就行 要唯一
           uri: lb://order-service #路由目标地址
           predicates: #路由规则
-              - Path=/api/order/**
+            - Path=/api/order/**
         - id: user-service
           uri: lb://user-service
           predicates:
