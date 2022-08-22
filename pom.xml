@@ -13,7 +13,6 @@
     <artifactId>springcloud-demo</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>eureka</module>
         <module>user-service</module>
         <module>order-service</module>
         <module>feign-api</module>
@@ -25,8 +24,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <spring-cloud-release.version>Hoxton.RELEASE</spring-cloud-release.version>
-        <erueka-client-version>2.1.2.RELEASE</erueka-client-version>
-        <erueka-server-version>2.1.2.RELEASE</erueka-server-version>
         <mysql-connector-version>8.0.19</mysql-connector-version>
         <openfeign-version>2.2.9.RELEASE</openfeign-version>
         <project-version>2.2.7.RELEASE</project-version>
@@ -45,11 +42,6 @@
                 <version>${spring-cloud-release.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-                <version>${erueka-server-version}</version>
             </dependency>
 
             <dependency>
