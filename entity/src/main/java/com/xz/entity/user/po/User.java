@@ -1,7 +1,6 @@
 package com.xz.entity.user.po;
 
 import lombok.Data;
-import org.apache.ibatis.type.Alias;
 
 /**
  * @ClassName： User

@@ -1,18 +1,24 @@
 package com.xz.service;
 
+import com.alibaba.nacos.common.utils.CollectionUtils;
 import com.xz.clients.userclients.UserClients;
 import com.xz.configpojo.OrderConfigWithNac;
 import com.xz.entity.commonview.ResultCode;
+import com.xz.entity.commonview.ResultPageView;
 import com.xz.entity.commonview.ResultView;
 import com.xz.entity.order.dto.OrderInfo;
 import com.xz.entity.order.po.Order;
 import com.xz.entity.user.dto.UserInfo;
+import com.xz.entity.user.po.User;
 import com.xz.mapper.OrderMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * @ClassName： OrderService
@@ -48,10 +54,26 @@ public class OrderService {
             return orderInfoResultView.setMsgCode(ResultCode.NO_DATA);
         }
         BeanUtils.copyProperties(order,orderInfo);
-        ResultView<UserInfo> userInfoResultView = userClients.byUserIdGetUserInfo(orderInfo.getUserId());
-        orderInfo.setUser(userInfoResultView.getData());
+        HashMap<String, Object> map = new HashMap<>(16);
+        map.put("id",orderInfo.getUserId());
+        ResultPageView<List<UserInfo>> userList = userClients.getUserList(map);
+        if (CollectionUtils.isNotEmpty(userList.getData())){
+            orderInfo.setUser(userList.getData().get(0));
+        }
         String format = LocalDateTime.now().format(DateTimeFormatter.ofPattern(orderConfigWithNac.getDateFormat()));
         orderInfo.setGetTime(format);
         return orderInfoResultView.setMsgCode(ResultCode.SUCCESS).setData(orderInfo);
+    }
+
+
+
+    public ResultView addOrderInfo(Order order) {
+        ResultView orderInfoResultView = new ResultView<>();
+        Integer result =orderMapper.addOrderInfo(order);
+        int i = 1/0;
+        if (result>0){
+            return orderInfoResultView.setMsgCode(ResultCode.SUCCESS);
+        }
+        return orderInfoResultView.setMsgCode(ResultCode.FAIL);
     }
 }

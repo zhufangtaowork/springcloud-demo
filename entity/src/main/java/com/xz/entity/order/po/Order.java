@@ -1,7 +1,6 @@
 package com.xz.entity.order.po;
 
 import lombok.Data;
-import org.apache.ibatis.type.Alias;
 
 import java.math.BigDecimal;
 

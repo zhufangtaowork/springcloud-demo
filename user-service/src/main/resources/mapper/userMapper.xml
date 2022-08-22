@@ -6,9 +6,27 @@ insert  into tb_user (password,username,address)values (#{password},#{username},
 
     </insert>
     <select id="byUserIdGetUserInfo" resultType="com.xz.entity.user.po.User">
-        select id,username,address from tb_user where id = #{id}
+        select id,username,password,address from tb_user where id = #{id}
     </select>
     <select id="getUserByUsername" resultType="com.xz.entity.user.po.User">
         select id,username,password,address from tb_user where username = #{username}
+    </select>
+    <select id="getUserList" resultType="com.xz.entity.user.po.User">
+    select id,username,password,address from tb_user
+    <where>
+    <if test="id!=null and id!=''">
+    id = #{id}
+    </if>
+    </where>
+    order by
+    <choose>
+        <when test="order==1">username</when>
+        <otherwise>username</otherwise>
+    </choose>
+    <choose>
+        <when test="sort==1">DESC</when>
+        <when test="sort==2">ASC</when>
+        <otherwise>DESC</otherwise>
+    </choose>
     </select>
 </mapper>

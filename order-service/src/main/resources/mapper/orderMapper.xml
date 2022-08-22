@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xz.mapper.OrderMapper">
+    <insert id="addOrderInfo">
+        insert into tb_order(user_id,product_detail,price,num) values (
+        #{userId},
+        #{productDetail},
+        #{price},
+        #{num}
+        )
+    </insert>
 
     <select id="byOrderIdGetOrderInfo" resultType="com.xz.entity.order.po.Order">
         select id,user_id as userId,product_detail as productDetail,price,num from tb_order where id = #{id}

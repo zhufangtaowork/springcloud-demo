@@ -15,5 +15,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Mapper
 public interface OrderMapper {
+
     Order byOrderIdGetOrderInfo(@Param(value = "id") Integer id);
+
+    Integer addOrderInfo(Order order);
 }
