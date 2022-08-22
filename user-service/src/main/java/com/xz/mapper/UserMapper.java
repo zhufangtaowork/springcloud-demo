@@ -20,16 +20,6 @@ import java.util.List;
 public interface UserMapper {
     /**
      * 功能描述: <br>
-     * 〈根据用户ID查询用户信息〉
-     * @Param: [id]
-     * @Return: com.xz.dto.UserInfo
-     * @Author: zft
-     * @Date: 2022/7/29 下午4:43
-     */
-    User byUserIdGetUserInfo(@Param(value = "id") Integer id);
-
-    /**
-     * 功能描述: <br>
      * 〈添加用户〉
      * @Param: [user]
      * @Return: java.lang.Integer

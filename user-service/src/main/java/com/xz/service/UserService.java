@@ -38,26 +38,6 @@ public class UserService {
 
     /**
      * 功能描述: <br>
-     * 〈根据用户ID查询用户信息Service层方法〉
-     * @Param: [id]
-     * @Return: com.xz.response.ResultView<com.xz.dto.UserInfo>
-     * @Author: zft
-     * @Date: 2022/7/29 下午5:02
-     */
-    public ResultView<UserInfo> byUserIdGetUserInfo(Integer id) {
-        UserInfo userInfo = new UserInfo();
-        ResultView<UserInfo> resultView = new ResultView<>();
-        User user = userMapper.byUserIdGetUserInfo(id);
-        if (StringUtils.isEmpty(user)){
-            return resultView.setMsgCode(ResultCode.NO_DATA);
-        }
-        BeanUtils.copyProperties(user,userInfo);
-        resultView = resultView.setMsgCode(ResultCode.SUCCESS).setData(userInfo);
-        return resultView;
-    }
-
-    /**
-     * 功能描述: <br>
      * 〈添加用户〉
      * @Param: [user]
      * @Return: com.xz.entity.commonview.ResultView
